@@ -1,0 +1,5 @@
+fragment SiteSettingsParts on SiteSettings {
+  __typename
+  orgName
+  tagline
+}
