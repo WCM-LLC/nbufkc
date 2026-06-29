@@ -2,4 +2,135 @@ fragment SiteSettingsParts on SiteSettings {
   __typename
   orgName
   tagline
+  logo
+  address {
+    __typename
+    line1
+    line2
+    mapEmbedUrl
+  }
+  email
+  phone
+  hours
+  nextForumDate
+  social {
+    __typename
+    facebook
+    instagram
+  }
+  donationLink
+}
+
+fragment HomeParts on Home {
+  __typename
+  hero {
+    __typename
+    heading
+    subheading
+    primaryCtaLabel
+    primaryCtaHref
+    secondaryCtaLabel
+    secondaryCtaHref
+    image
+  }
+  mission {
+    __typename
+    heading
+    body
+  }
+  actionCards {
+    __typename
+    title
+    description
+    href
+    ctaLabel
+  }
+  ourWork {
+    __typename
+    heading
+    intro
+    focusAreas {
+      __typename
+      title
+      description
+    }
+  }
+  upcomingForum {
+    __typename
+    heading
+    body
+  }
+  contactCta {
+    __typename
+    heading
+    body
+  }
+}
+
+fragment AboutParts on About {
+  __typename
+  hero {
+    __typename
+    heading
+    subheading
+  }
+  mission {
+    __typename
+    heading
+    body
+  }
+  vision {
+    __typename
+    heading
+    body
+  }
+  history {
+    __typename
+    heading
+    body
+  }
+  whatWeDo {
+    __typename
+    heading
+    body
+    items {
+      __typename
+      title
+      description
+    }
+  }
+  leadership {
+    __typename
+    name
+    role
+    photo
+    bio
+  }
+}
+
+fragment PartnerParts on Partner {
+  __typename
+  name
+  blurb
+  url
+  order
+}
+
+fragment ResourceParts on Resource {
+  __typename
+  title
+  description
+  file
+  type
+  order
+}
+
+fragment UpdateParts on Update {
+  __typename
+  title
+  date
+  draft
+  excerpt
+  coverImage
+  body
 }

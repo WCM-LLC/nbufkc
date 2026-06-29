@@ -1,4 +1,19 @@
 {
   "orgName": "National Black United Front – Kansas City",
-  "tagline": "Building Black Unity and Self-Determination in Kansas City"
+  "tagline": "Building Black Unity and Self-Determination in Kansas City",
+  "logo": "",
+  "address": {
+    "line1": "7714 Prospect Ave.",
+    "line2": "Kansas City, MO [ZIP — PLACEHOLDER]",
+    "mapEmbedUrl": ""
+  },
+  "email": "[EMAIL — PLACEHOLDER]",
+  "phone": "[PHONE — PLACEHOLDER]",
+  "hours": "[HOURS — PLACEHOLDER]",
+  "nextForumDate": "[NEXT FORUM DATE — PLACEHOLDER]",
+  "social": {
+    "facebook": "https://facebook.com/NBUFKC",
+    "instagram": "https://instagram.com/nationalblackunitedfront_kc"
+  },
+  "donationLink": ""
 }

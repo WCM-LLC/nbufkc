@@ -1,0 +1,74 @@
+{
+  "hero": {
+    "heading": "Building Black Unity and Self-Determination in Kansas City",
+    "subheading": "The National Black United Front – Kansas City organizes for self-determination, liberation, and power for African people in Kansas City and across the diaspora.",
+    "primaryCtaLabel": "Join Our Forum",
+    "primaryCtaHref": "/contact",
+    "secondaryCtaLabel": "Learn More",
+    "secondaryCtaHref": "/about",
+    "image": ""
+  },
+  "mission": {
+    "heading": "Our Mission",
+    "body": {
+      "type": "root",
+      "children": [
+        {
+          "type": "p",
+          "children": [
+            {
+              "type": "text",
+              "text": "[MISSION STATEMENT — PLACEHOLDER. Replace with NBUF-KC's official mission wording.] NBUF-KC is a chapter of the National Black United Front, a Pan-African organization founded in 1980, working toward self-determination, liberation, and power for African people in the United States and throughout the diaspora."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "actionCards": [
+    {
+      "title": "Attend a Forum",
+      "description": "Our monthly Liberation Forum is free and open to the public. Come learn, connect, and organize.",
+      "href": "/contact",
+      "ctaLabel": "Get details"
+    },
+    {
+      "title": "Explore Resources",
+      "description": "Read and download documents, flyers, and materials from NBUF-KC.",
+      "href": "/resources",
+      "ctaLabel": "Browse resources"
+    },
+    {
+      "title": "Meet Our Partners",
+      "description": "We work alongside organizations across Kansas City and beyond.",
+      "href": "/partners",
+      "ctaLabel": "See partners"
+    }
+  ],
+  "ourWork": {
+    "heading": "Our Work",
+    "intro": "[OUR WORK INTRO — PLACEHOLDER. Briefly describe NBUF-KC's focus areas.]",
+    "focusAreas": [
+      {
+        "title": "Self-Determination",
+        "description": "[PLACEHOLDER — describe this focus area.]"
+      },
+      {
+        "title": "Liberation",
+        "description": "[PLACEHOLDER — describe this focus area.]"
+      },
+      {
+        "title": "Community Power",
+        "description": "[PLACEHOLDER — describe this focus area.]"
+      }
+    ]
+  },
+  "upcomingForum": {
+    "heading": "Upcoming Liberation Forum",
+    "body": "Our monthly Liberation Forum is free and open to the public. Everyone is welcome."
+  },
+  "contactCta": {
+    "heading": "Get Involved",
+    "body": "Have a question or want to get involved? Reach out or follow us on social media."
+  }
+}

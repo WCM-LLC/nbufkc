@@ -56,10 +56,25 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   siteSettings(relativePath: String): SiteSettings!
   siteSettingsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SiteSettingsFilter): SiteSettingsConnection!
+  home(relativePath: String): Home!
+  homeConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: HomeFilter): HomeConnection!
+  about(relativePath: String): About!
+  aboutConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AboutFilter): AboutConnection!
+  partner(relativePath: String): Partner!
+  partnerConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PartnerFilter): PartnerConnection!
+  resource(relativePath: String): Resource!
+  resourceConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ResourceFilter): ResourceConnection!
+  update(relativePath: String): Update!
+  updateConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: UpdateFilter): UpdateConnection!
 }
 
 input DocumentFilter {
   siteSettings: SiteSettingsFilter
+  home: HomeFilter
+  about: AboutFilter
+  partner: PartnerFilter
+  resource: ResourceFilter
+  update: UpdateFilter
 }
 
 type DocumentConnectionEdges {
@@ -85,11 +100,30 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = SiteSettings | Folder
+union DocumentNode = SiteSettings | Home | About | Partner | Resource | Update | Folder
+
+type SiteSettingsAddress {
+  line1: String
+  line2: String
+  mapEmbedUrl: String
+}
+
+type SiteSettingsSocial {
+  facebook: String
+  instagram: String
+}
 
 type SiteSettings implements Node & Document {
   orgName: String!
   tagline: String
+  logo: String
+  address: SiteSettingsAddress
+  email: String
+  phone: String
+  hours: String
+  nextForumDate: String
+  social: SiteSettingsSocial
+  donationLink: String
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -102,9 +136,35 @@ input StringFilter {
   in: [String]
 }
 
+input ImageFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input SiteSettingsAddressFilter {
+  line1: StringFilter
+  line2: StringFilter
+  mapEmbedUrl: StringFilter
+}
+
+input SiteSettingsSocialFilter {
+  facebook: StringFilter
+  instagram: StringFilter
+}
+
 input SiteSettingsFilter {
   orgName: StringFilter
   tagline: StringFilter
+  logo: ImageFilter
+  address: SiteSettingsAddressFilter
+  email: StringFilter
+  phone: StringFilter
+  hours: StringFilter
+  nextForumDate: StringFilter
+  social: SiteSettingsSocialFilter
+  donationLink: StringFilter
 }
 
 type SiteSettingsConnectionEdges {
@@ -118,6 +178,351 @@ type SiteSettingsConnection implements Connection {
   edges: [SiteSettingsConnectionEdges]
 }
 
+type HomeHero {
+  heading: String
+  subheading: String
+  primaryCtaLabel: String
+  primaryCtaHref: String
+  secondaryCtaLabel: String
+  secondaryCtaHref: String
+  image: String
+}
+
+type HomeMission {
+  heading: String
+  body: JSON
+}
+
+type HomeActionCards {
+  title: String
+  description: String
+  href: String
+  ctaLabel: String
+}
+
+type HomeOurWorkFocusAreas {
+  title: String
+  description: String
+}
+
+type HomeOurWork {
+  heading: String
+  intro: String
+  focusAreas: [HomeOurWorkFocusAreas]
+}
+
+type HomeUpcomingForum {
+  heading: String
+  body: String
+}
+
+type HomeContactCta {
+  heading: String
+  body: String
+}
+
+type Home implements Node & Document {
+  hero: HomeHero
+  mission: HomeMission
+  actionCards: [HomeActionCards]
+  ourWork: HomeOurWork
+  upcomingForum: HomeUpcomingForum
+  contactCta: HomeContactCta
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input HomeHeroFilter {
+  heading: StringFilter
+  subheading: StringFilter
+  primaryCtaLabel: StringFilter
+  primaryCtaHref: StringFilter
+  secondaryCtaLabel: StringFilter
+  secondaryCtaHref: StringFilter
+  image: ImageFilter
+}
+
+input RichTextFilter {
+  startsWith: String
+  eq: String
+  exists: Boolean
+}
+
+input HomeMissionFilter {
+  heading: StringFilter
+  body: RichTextFilter
+}
+
+input HomeActionCardsFilter {
+  title: StringFilter
+  description: StringFilter
+  href: StringFilter
+  ctaLabel: StringFilter
+}
+
+input HomeOurWorkFocusAreasFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input HomeOurWorkFilter {
+  heading: StringFilter
+  intro: StringFilter
+  focusAreas: HomeOurWorkFocusAreasFilter
+}
+
+input HomeUpcomingForumFilter {
+  heading: StringFilter
+  body: StringFilter
+}
+
+input HomeContactCtaFilter {
+  heading: StringFilter
+  body: StringFilter
+}
+
+input HomeFilter {
+  hero: HomeHeroFilter
+  mission: HomeMissionFilter
+  actionCards: HomeActionCardsFilter
+  ourWork: HomeOurWorkFilter
+  upcomingForum: HomeUpcomingForumFilter
+  contactCta: HomeContactCtaFilter
+}
+
+type HomeConnectionEdges {
+  cursor: String!
+  node: Home
+}
+
+type HomeConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [HomeConnectionEdges]
+}
+
+type AboutHero {
+  heading: String
+  subheading: String
+}
+
+type AboutMission {
+  heading: String
+  body: JSON
+}
+
+type AboutVision {
+  heading: String
+  body: JSON
+}
+
+type AboutHistory {
+  heading: String
+  body: JSON
+}
+
+type AboutWhatWeDoItems {
+  title: String
+  description: String
+}
+
+type AboutWhatWeDo {
+  heading: String
+  body: JSON
+  items: [AboutWhatWeDoItems]
+}
+
+type AboutLeadership {
+  name: String
+  role: String
+  photo: String
+  bio: String
+}
+
+type About implements Node & Document {
+  hero: AboutHero
+  mission: AboutMission
+  vision: AboutVision
+  history: AboutHistory
+  whatWeDo: AboutWhatWeDo
+  leadership: [AboutLeadership]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input AboutHeroFilter {
+  heading: StringFilter
+  subheading: StringFilter
+}
+
+input AboutMissionFilter {
+  heading: StringFilter
+  body: RichTextFilter
+}
+
+input AboutVisionFilter {
+  heading: StringFilter
+  body: RichTextFilter
+}
+
+input AboutHistoryFilter {
+  heading: StringFilter
+  body: RichTextFilter
+}
+
+input AboutWhatWeDoItemsFilter {
+  title: StringFilter
+  description: StringFilter
+}
+
+input AboutWhatWeDoFilter {
+  heading: StringFilter
+  body: RichTextFilter
+  items: AboutWhatWeDoItemsFilter
+}
+
+input AboutLeadershipFilter {
+  name: StringFilter
+  role: StringFilter
+  photo: ImageFilter
+  bio: StringFilter
+}
+
+input AboutFilter {
+  hero: AboutHeroFilter
+  mission: AboutMissionFilter
+  vision: AboutVisionFilter
+  history: AboutHistoryFilter
+  whatWeDo: AboutWhatWeDoFilter
+  leadership: AboutLeadershipFilter
+}
+
+type AboutConnectionEdges {
+  cursor: String!
+  node: About
+}
+
+type AboutConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [AboutConnectionEdges]
+}
+
+type Partner implements Node & Document {
+  name: String!
+  blurb: String
+  url: String
+  order: Float
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input NumberFilter {
+  lt: Float
+  lte: Float
+  gte: Float
+  gt: Float
+  eq: Float
+  exists: Boolean
+  in: [Float]
+}
+
+input PartnerFilter {
+  name: StringFilter
+  blurb: StringFilter
+  url: StringFilter
+  order: NumberFilter
+}
+
+type PartnerConnectionEdges {
+  cursor: String!
+  node: Partner
+}
+
+type PartnerConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PartnerConnectionEdges]
+}
+
+type Resource implements Node & Document {
+  title: String!
+  description: String
+  file: String
+  type: String
+  order: Float
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input ResourceFilter {
+  title: StringFilter
+  description: StringFilter
+  file: ImageFilter
+  type: StringFilter
+  order: NumberFilter
+}
+
+type ResourceConnectionEdges {
+  cursor: String!
+  node: Resource
+}
+
+type ResourceConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [ResourceConnectionEdges]
+}
+
+type Update implements Node & Document {
+  title: String!
+  date: String!
+  draft: Boolean
+  excerpt: String
+  coverImage: String
+  body: JSON
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input DatetimeFilter {
+  after: String
+  before: String
+  eq: String
+  exists: Boolean
+  in: [String]
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input UpdateFilter {
+  title: StringFilter
+  date: DatetimeFilter
+  draft: BooleanFilter
+  excerpt: StringFilter
+  coverImage: ImageFilter
+  body: RichTextFilter
+}
+
+type UpdateConnectionEdges {
+  cursor: String!
+  node: Update
+}
+
+type UpdateConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [UpdateConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String, relativePath: String!, params: DocumentUpdateMutation!): DocumentNode!
@@ -126,20 +531,182 @@ type Mutation {
   createFolder(collection: String, relativePath: String!): DocumentNode!
   updateSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
   createSiteSettings(relativePath: String!, params: SiteSettingsMutation!): SiteSettings!
+  updateHome(relativePath: String!, params: HomeMutation!): Home!
+  createHome(relativePath: String!, params: HomeMutation!): Home!
+  updateAbout(relativePath: String!, params: AboutMutation!): About!
+  createAbout(relativePath: String!, params: AboutMutation!): About!
+  updatePartner(relativePath: String!, params: PartnerMutation!): Partner!
+  createPartner(relativePath: String!, params: PartnerMutation!): Partner!
+  updateResource(relativePath: String!, params: ResourceMutation!): Resource!
+  createResource(relativePath: String!, params: ResourceMutation!): Resource!
+  updateUpdate(relativePath: String!, params: UpdateMutation!): Update!
+  createUpdate(relativePath: String!, params: UpdateMutation!): Update!
 }
 
 input DocumentUpdateMutation {
   siteSettings: SiteSettingsMutation
+  home: HomeMutation
+  about: AboutMutation
+  partner: PartnerMutation
+  resource: ResourceMutation
+  update: UpdateMutation
   relativePath: String
 }
 
 input DocumentMutation {
   siteSettings: SiteSettingsMutation
+  home: HomeMutation
+  about: AboutMutation
+  partner: PartnerMutation
+  resource: ResourceMutation
+  update: UpdateMutation
+}
+
+input SiteSettingsAddressMutation {
+  line1: String
+  line2: String
+  mapEmbedUrl: String
+}
+
+input SiteSettingsSocialMutation {
+  facebook: String
+  instagram: String
 }
 
 input SiteSettingsMutation {
   orgName: String
   tagline: String
+  logo: String
+  address: SiteSettingsAddressMutation
+  email: String
+  phone: String
+  hours: String
+  nextForumDate: String
+  social: SiteSettingsSocialMutation
+  donationLink: String
+}
+
+input HomeHeroMutation {
+  heading: String
+  subheading: String
+  primaryCtaLabel: String
+  primaryCtaHref: String
+  secondaryCtaLabel: String
+  secondaryCtaHref: String
+  image: String
+}
+
+input HomeMissionMutation {
+  heading: String
+  body: JSON
+}
+
+input HomeActionCardsMutation {
+  title: String
+  description: String
+  href: String
+  ctaLabel: String
+}
+
+input HomeOurWorkFocusAreasMutation {
+  title: String
+  description: String
+}
+
+input HomeOurWorkMutation {
+  heading: String
+  intro: String
+  focusAreas: [HomeOurWorkFocusAreasMutation]
+}
+
+input HomeUpcomingForumMutation {
+  heading: String
+  body: String
+}
+
+input HomeContactCtaMutation {
+  heading: String
+  body: String
+}
+
+input HomeMutation {
+  hero: HomeHeroMutation
+  mission: HomeMissionMutation
+  actionCards: [HomeActionCardsMutation]
+  ourWork: HomeOurWorkMutation
+  upcomingForum: HomeUpcomingForumMutation
+  contactCta: HomeContactCtaMutation
+}
+
+input AboutHeroMutation {
+  heading: String
+  subheading: String
+}
+
+input AboutMissionMutation {
+  heading: String
+  body: JSON
+}
+
+input AboutVisionMutation {
+  heading: String
+  body: JSON
+}
+
+input AboutHistoryMutation {
+  heading: String
+  body: JSON
+}
+
+input AboutWhatWeDoItemsMutation {
+  title: String
+  description: String
+}
+
+input AboutWhatWeDoMutation {
+  heading: String
+  body: JSON
+  items: [AboutWhatWeDoItemsMutation]
+}
+
+input AboutLeadershipMutation {
+  name: String
+  role: String
+  photo: String
+  bio: String
+}
+
+input AboutMutation {
+  hero: AboutHeroMutation
+  mission: AboutMissionMutation
+  vision: AboutVisionMutation
+  history: AboutHistoryMutation
+  whatWeDo: AboutWhatWeDoMutation
+  leadership: [AboutLeadershipMutation]
+}
+
+input PartnerMutation {
+  name: String
+  blurb: String
+  url: String
+  order: Float
+}
+
+input ResourceMutation {
+  title: String
+  description: String
+  file: String
+  type: String
+  order: Float
+}
+
+input UpdateMutation {
+  title: String
+  date: String
+  draft: Boolean
+  excerpt: String
+  coverImage: String
+  body: JSON
 }
 
 schema {
