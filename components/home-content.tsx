@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTina, tinaField } from "tinacms/dist/react";
 import type { HomeQuery, SiteSettingsQuery } from "@/tina/__generated__/types";
 import RichText from "@/components/rich-text";
@@ -68,6 +69,18 @@ export default function HomeContent(props: Props) {
               </Link>
             )}
           </div>
+          {home.hero?.image && (
+            <div className="mt-10" data-tina-field={tinaField(home.hero, "image")}>
+              <Image
+                src={home.hero.image}
+                alt=""
+                width={1200}
+                height={600}
+                priority
+                className="h-auto w-full rounded-2xl object-cover shadow-sm"
+              />
+            </div>
+          )}
         </div>
       </section>
 
