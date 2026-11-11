@@ -5,65 +5,19 @@
   },
   "mission": {
     "heading": "Mission",
-    "body": {
-      "type": "root",
-      "children": [
-        {
-          "type": "p",
-          "children": [
-            {
-              "type": "text",
-              "text": "[MISSION — PLACEHOLDER. Replace with NBUF-KC's official mission wording.] We organize for self-determination, liberation, and power for African people in the United States and throughout the diaspora."
-            }
-          ]
-        }
-      ]
-    }
+    "body": "[MISSION — PLACEHOLDER. Replace with NBUF-KC's official mission wording.] We organize for self-determination, liberation, and power for African people in the United States and throughout the diaspora.\n"
   },
   "vision": {
     "heading": "Vision",
-    "body": {
-      "type": "root",
-      "children": [
-        {
-          "type": "p",
-          "children": [
-            { "type": "text", "text": "[VISION — PLACEHOLDER. Replace with NBUF-KC's vision statement.]" }
-          ]
-        }
-      ]
-    }
+    "body": "[VISION — PLACEHOLDER. Replace with NBUF-KC's vision statement.]\n"
   },
   "history": {
     "heading": "History",
-    "body": {
-      "type": "root",
-      "children": [
-        {
-          "type": "p",
-          "children": [
-            {
-              "type": "text",
-              "text": "[HISTORY — PLACEHOLDER. Replace with the history of NBUF-KC. The national National Black United Front is a Pan-African organization founded in 1980.]"
-            }
-          ]
-        }
-      ]
-    }
+    "body": "[HISTORY — PLACEHOLDER. Replace with the history of NBUF-KC. The national National Black United Front is a Pan-African organization founded in 1980.]\n"
   },
   "whatWeDo": {
     "heading": "What We Do",
-    "body": {
-      "type": "root",
-      "children": [
-        {
-          "type": "p",
-          "children": [
-            { "type": "text", "text": "[WHAT WE DO — PLACEHOLDER. Describe NBUF-KC's programs and activities.]" }
-          ]
-        }
-      ]
-    },
+    "body": "[WHAT WE DO — PLACEHOLDER. Describe NBUF-KC's programs and activities.]\n",
     "items": [
       {
         "title": "Monthly Liberation Forum",

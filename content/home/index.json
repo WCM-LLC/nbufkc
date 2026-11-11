@@ -10,20 +10,7 @@
   },
   "mission": {
     "heading": "Our Mission",
-    "body": {
-      "type": "root",
-      "children": [
-        {
-          "type": "p",
-          "children": [
-            {
-              "type": "text",
-              "text": "[MISSION STATEMENT — PLACEHOLDER. Replace with NBUF-KC's official mission wording.] NBUF-KC is a chapter of the National Black United Front, a Pan-African organization founded in 1980, working toward self-determination, liberation, and power for African people in the United States and throughout the diaspora."
-            }
-          ]
-        }
-      ]
-    }
+    "body": "[MISSION STATEMENT — PLACEHOLDER. Replace with NBUF-KC's official mission wording.] NBUF-KC is a chapter of the National Black United Front, a Pan-African organization founded in 1980, working toward self-determination, liberation, and power for African people in the United States and throughout the diaspora.\n"
   },
   "actionCards": [
     {
